@@ -3,17 +3,23 @@ angular.module('contextcommentsApp')
     $stateProvider
       .state('article', {
         url: '/article',
-        templateUrl: 'app/article/article.html',
-        controller: function() {}
-      })
-      .state('article.content', {
-        url: '/content',
-        templateUrl: 'app/article/content.html',
-        controller: function() {}
-      })
-      .state('article.comment', {
-        url: '/comment',
-        templateUrl: 'app/article/comment.html',
-        controller: function() {}
+        views: {
+
+	        '':{
+
+	        	templateUrl: 'app/article/article.html',
+        		controller: function() {}
+	    },
+
+        	"content@article": { 
+        		template: "app/article/article.html",
+        		controller: function() {}
+        },
+        	"comment@article": { 
+        		template: "app/article/article.html",
+        		controller: function() {}
+        	}
+        },
+        // templateUrl: 'app/article/article.html',
       })
   });
