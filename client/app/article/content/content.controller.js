@@ -6,20 +6,12 @@ angular.module('contextcommentsApp')
     // Use the User $resource to fetch all users
     $scope.title = '';
     $scope.body = '';
-    $http.get('/api/content/title1').
+    $http.get('/api/article/:1').
       success(function(data, status, headers, config) {
-        $scope.title+=data;
+        $scope.title=data.title;
+        $scope.body=data.body;
       }).
       error(function(data, status, headers, config) {
         console.log('error');
       });
-
-    $http.get('/api/content/body1').
-      success(function(data, status, headers, config) {
-        $scope.body+=data;
-      }).
-      error(function(data, status, headers, config) {
-        console.log('error');
-      });
-
   });
