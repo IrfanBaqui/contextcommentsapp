@@ -2,7 +2,7 @@ angular.module('contextcommentsApp')
   .config(function ($stateProvider) {
     $stateProvider
       .state('article', {
-        url: '/article',
+        url: '/article:articleId',
         views: {
 
 	        '':{
