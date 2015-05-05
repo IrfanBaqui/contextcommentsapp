@@ -12,8 +12,8 @@ angular.module('contextcommentsApp')
 	    },
 
         	"content@article": { 
-        		template: "app/article/article.html",
-        		controller: function() {}
+        		templateUrl: "app/article/content/content.html  ",
+        		controller: 'ContentContrl'
         },
         	"comment@article": { 
         		templateUrl: "app/article/comment/comment.html",
