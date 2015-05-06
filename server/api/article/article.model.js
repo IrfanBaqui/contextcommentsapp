@@ -6,7 +6,7 @@ var mongoose = require('mongoose'),
 var ArticleSchema = new Schema({
   title: String,
   body: String,
-  comments : {}
+  comments : []
 });
 
 module.exports = mongoose.model('Article', ArticleSchema);

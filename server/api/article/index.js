@@ -9,5 +9,9 @@ router.get('/:id', controller.show);
 
 router.post('/', controller.create);
 
+//put route for comments
+
+router.put('/:id', controller.update);
+
 
 module.exports = router;
