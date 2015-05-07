@@ -3,7 +3,7 @@
 console.log('here');
 
 angular.module('contextcommentsApp')
-  .controller('CommentBoxCtrl', function ($scope, $http) {
+  .controller('CommentBoxCtrl', function ($scope, $http, $stateParams) {
     $scope.boxes = [
       {
         commentedText: 'Comment Box 1', 
@@ -20,4 +20,18 @@ angular.module('contextcommentsApp')
         ]
       }
     ];
+    console.log($stateParams.articleId);
+    $http.get('/api/article/'+$stateParams.articleId).
+      success(function(data, status, headers, config) {
+        // commented out this for right now
+        // $scope.boxes=data.comments;
+      }).
+      error(function(data, status, headers, config) {
+        console.log('error');
+      });
+    $scope.addCommentEntry = function () {
+      // add factory functionality
+      // Comment.addCommentEntry(user, $scope.commentText, date)
+      // then refresh or add to current page dynamically
+    }
   });
