@@ -1,8 +1,8 @@
 <!-- div for the entire right panel -->
-<div id="commentPanel" class="bs-docs-sidebar affix-top">
+<div id="commentPanel" class="affix-top pull-right" style="position: float right">
 
   <!-- comment box -->
-  <div class="panel" ng-repeat="box in boxes">
+  <div class="panel panel-default" ng-repeat="box in boxes">
     <!-- string of text associated with the comment box -->
     <div class="commentedText">{{ box.commentedText }}</div>
     <!-- entries in the comment box -->
@@ -20,7 +20,7 @@
 
     <form class="form-inline" role="form">
       <div class="form-group">
-        <input class="form-control" type="text" placeholder="Your comments" />
+        <input class="form-control" type="text" placeholder="Your comments" ng-model="entry.comment"/>
       </div>
       <div class="form-group">
         <button class="btn btn-default">Add</button>
