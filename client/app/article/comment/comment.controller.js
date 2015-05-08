@@ -27,9 +27,12 @@ angular.module('contextcommentsApp')
       error(function(data, status, headers, config) {
         console.log('error');
       });
+    
+
     $scope.addCommentEntry = function () {
-      // var entry = {username: username, comment: $scope.commentText, updatedAt: date};
-      // Comment.addCommentEntry(entry)
+      console.log('Entering addCommentEntry function');
+      var entry = {username: 'test user', comment: $scope.commentText, updatedAt: 'date'};
+      Comment.addCommentEntry(entry);
       // then refresh or add to current page dynamically
     }
   });
