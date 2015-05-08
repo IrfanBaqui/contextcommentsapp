@@ -1,16 +1,18 @@
 angular.module('contextcommentsApp')
   // CommentBox factory to add and return new comment boxes
-  .factory('CommentBox', function ($http) {
+  .factory('Comment', function ($http, $stateParams) {
+    
     // response data takes in an article id and returns the appropriate comment boxes
     var getCommentBoxes = function () {
       return $http({
         method: 'GET',
-        url: 'api/article'
+        url: '/api/article/'+$stateParams.articleId
       })
       .then(function (response)) {
         return response.data;
       });
     };
+
     // creates a new comment box and appends it to comments in article
     var addCommentBox = function (commentBoxId) {
       return $http({
@@ -20,15 +22,8 @@ angular.module('contextcommentsApp')
       });
     };
 
-    return {
-      getCommentBoxes: getCommentBoxes,
-      addCommentBox: addCommentBox
-    };
-
-  })
-
-  // CommentEntry factory to add and return comment entries
-  .factory('CommentEntry', function ($http) {
+    // CommentEntry factory to add and return comment entries
+    
     // response data takes in an array of comment entry objects
     var getCommentEntries = function (commentBoxId) {
       return $http({
@@ -49,6 +44,8 @@ angular.module('contextcommentsApp')
     };
 
     return {
+      getCommentBoxes: getCommentBoxes,
+      addCommentBox: addCommentBox,
       getCommentEntries: getCommentEntries,
       addCommentEntry: addCommentEntry
     };
