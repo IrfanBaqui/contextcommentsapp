@@ -1,7 +1,5 @@
 'use strict';
 
-console.log('here');
-
 angular.module('contextcommentsApp')
   .controller('CommentBoxCtrl', function ($scope, $http, $stateParams) {
     $scope.boxes = [
@@ -31,7 +29,9 @@ angular.module('contextcommentsApp')
       });
     $scope.addCommentEntry = function () {
       // add factory functionality
-      // Comment.addCommentEntry(user, $scope.commentText, date)
+      // Comment.addCommentEntry(entry)
+      // entry is an object with 
+      // {username: username, comment: $scope.commentText, updatedAt: date}
       // then refresh or add to current page dynamically
     }
   });
