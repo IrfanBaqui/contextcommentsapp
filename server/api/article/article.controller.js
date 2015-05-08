@@ -1,6 +1,5 @@
 /**
  * Using Rails-like standard naming convention for endpoints.
-
  * POST    /article              ->  create
  * GET     /article/:id          ->  show
  * PUT     /article/:id          ->  update
@@ -31,15 +30,25 @@ exports.show = function(req, res) {
 };
 
 /******************
-As of now this only updates the comments property of the article document as that's the only thing that would be dynamic.
-The front end would maintain a local copy of the comments Obj and sync it w/ the server using put
-
-This test code is useful. Change someObjId to a valid Obj ID from the server
-
-curl -H 'Content-Type: application/json' -H 'Accept: application/json' -X PUT -d '{"comments":[{"commentedText":"Comment Box 1","entries":[{"username":"John","comment":"Hello, World!","updatedAt":"Today"},{"username":"Jane","comment":"Hello, John!","updatedAt":"Today"}]},{"commentedText":"Comment Box 2","entries":[{"username":"John","comment":"Jane you are not the world.","updatedAt":"Today"},{"username":"Jane","comment":"How do you know?","updatedAt":"Today"}]}]}' http://localhost:9000/api/article/someObjID
-*/
-
-
+ * As of now this only updates the comments property of the article
+ * document as that's the only thing that would be dynamic.
+ * The front end would maintain a local copy of the comments Obj
+ * and sync it w/ the server using PUT
+ * 
+ * This test code is useful. Change someObjId to a valid Obj ID from the server
+ * 
+ * curl -H 'Content-Type: application/json' -H 'Accept: application/json' -X PUT -d
+ * '{"comments":[
+ *    {"commentedText":"Comment Box 1",
+ *      "entries":[
+ *        {"username":"John","comment":"Hello, World!","updatedAt":"Today"},
+ *        {"username":"Jane","comment":"Hello, John!","updatedAt":"Today"}]},
+ *    {"commentedText":"Comment Box 2",
+ *      "entries":[
+ *        {"username":"John","comment":"Jane you are not the world.","updatedAt":"Today"},
+ *        {"username":"Jane","comment":"How do you know?","updatedAt":"Today"}]}
+ *    ]}' http://localhost:9000/api/article/someObjID
+ */
 
 exports.update = function(req, res) {
   if(req.body._id) { delete req.body._id; }
@@ -54,7 +63,6 @@ exports.update = function(req, res) {
   });
 };
 
-
 function handleError(res, err) {
   return res.send(500, err);
-}
+};

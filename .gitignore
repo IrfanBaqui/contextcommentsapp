@@ -8,3 +8,7 @@ dist
 
 # for Derek's testing
 id.txt
+
+# seemed to add my .DS_Store, added to git ignore to remove
+.DS_Store
+
