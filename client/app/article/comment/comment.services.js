@@ -5,26 +5,26 @@ angular.module('contextcommentsApp')
     // Only need to update comments because pages are all served at once
 
     // creates a new comment box and appends it to comments in article
-    var addCommentBox = function (commentBoxId) {
+    var syncComments = function (data) {
       return $http({
         method: 'PUT',
-        url: '/api/article' + $stateParams.articleId,
-        data: commentBoxId
+        url: '/api/article/' + $stateParams.articleId,
+        data: data
       });
     };
 
     // comment entry takes in an object for a comment entry
-    var addCommentEntry = function (entry) {
-      return $http({
-        method: 'POST',
-        url: '/api/article' + $stateParams.articleId,
-        data: entry
-      });
-    };
+    // var addCommentEntry = function (entry) {
+    //   return $http({
+    //     method: 'POST',
+    //     url: '/api/article' + $stateParams.articleId,
+    //     data: entry
+    //   });
+    // };
 
     return {
-      addCommentBox: addCommentBox,
-      addCommentEntry: addCommentEntry
+      syncComments: syncComments
+      // addCommentEntry: addCommentEntry
     };
 
   });

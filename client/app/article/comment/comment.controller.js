@@ -29,10 +29,11 @@ angular.module('contextcommentsApp')
       });
     
 
-    $scope.addCommentEntry = function () {
+    $scope.addCommentEntry = function (index) {
       console.log('Entering addCommentEntry function');
       var entry = {username: 'test user', comment: $scope.commentText, updatedAt: 'date'};
-      Comment.addCommentEntry(entry);
+      $scope.boxes[index].entries.push(entry);
+      Comment.syncComments($scope.boxes);
       // then refresh or add to current page dynamically
     }
   });

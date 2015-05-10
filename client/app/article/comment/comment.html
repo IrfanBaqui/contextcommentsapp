@@ -2,7 +2,7 @@
 <div id="commentPanel" style='padding-top:75px;'>
 
   <!-- comment box -->
-  <div class="panel panel-default" ng-repeat="box in boxes">
+  <div class="panel panel-default" ng-repeat="box in boxes track by $index">
     <!-- string of text associated with the comment box -->
     <div class="commentedText">{{ box.commentedText }}</div>
     <!-- entries in the comment box -->
@@ -18,7 +18,7 @@
       </div>
     </div>
 
-    <form class="form-inline" ng-submit="addCommentEntry()" role="form">
+    <form class="form-inline" ng-submit="addCommentEntry($index)" role="form">
       <div class="form-group">
         <input class="form-control" type="text" placeholder="Your comments" ng-model="entry.comment"/>
       </div>
