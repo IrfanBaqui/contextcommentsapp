@@ -1,1 +1,1 @@
-web: grunt --force
+web: node server/app.js

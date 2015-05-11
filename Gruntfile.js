@@ -611,4 +611,11 @@ module.exports = function (grunt) {
     'build',
     'serve'
   ]);
+
+  grunt.registerTask('heroku', [
+    'newer:jshint',
+    'test',
+    'build',
+    'serve'
+  ]);
 };
