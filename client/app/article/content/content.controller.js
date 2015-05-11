@@ -1,7 +1,9 @@
 'use strict';
 
 angular.module('contextcommentsApp')
-  .controller('ContentContrl', function ($scope, $http , $stateParams) {
+  .controller('ContentContrl', function ($scope, $http , $stateParams, Comment) {
+
+    console.log($scope);
 
     // Use the User $resource to fetch all users
     $scope.title = '';
@@ -93,7 +95,6 @@ angular.module('contextcommentsApp')
       );
       range.surroundContents(newNode);
       $scope.context.node = newNode;
-      //insert post request here
     }
 
     $scope.highlightSelection = function() {
@@ -102,6 +103,7 @@ angular.module('contextcommentsApp')
       for (var i = 0; i < safeRanges.length; i++) {
         $scope.highlightRange(safeRanges[i]);
       }
+      Comment.createNewBox(safeRanges.toString()); 
     }
 
 /********** End Context Highlighting *********/

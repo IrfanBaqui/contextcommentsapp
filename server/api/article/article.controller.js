@@ -55,7 +55,7 @@ exports.update = function(req, res) {
   Article.findById(req.params.id, function (err, article) {
     if (err) { return handleError(res, err); }
     if(!article) { return res.send(404); }
-    article.comments = req.body.comments;
+    article.comments = req.body;
     article.save(function (err) {
       if (err) { return handleError(res, err); }
       return res.json(200, article);
