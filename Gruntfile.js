@@ -608,8 +608,7 @@ module.exports = function (grunt) {
   grunt.registerTask('default', [
     'newer:jshint',
     'test',
-    'build',
-    'serve'
+    'build'
   ]);
 
   grunt.registerTask('heroku', [

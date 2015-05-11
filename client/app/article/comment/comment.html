@@ -1,8 +1,7 @@
 <!-- div for the entire right panel -->
-<div id="commentPanel" class="container" style="padding-top: 75px;">
-
+<div id="commentPanel" style="position:fixed;">
   <!-- comment box -->
-  <div class="panel panel-default" ng-repeat="box in boxes track by $index">
+  <div class="panel panel-default" ng-repeat="box in boxes track by $index" style="position:relative;">
     <!-- string of text associated with the comment box -->
     <div class="commentedText">{{ box.commentedText }}</div>
     <!-- entries in the comment box -->
