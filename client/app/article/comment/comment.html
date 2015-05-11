@@ -8,12 +8,11 @@
     <!-- entries in the comment box -->
     <div class="panel" ng-repeat="entry in box.entries">
       <div class="Entry">
-        <div class="commenterImage">
-          User: {{ entry.username }} 
-        </div>
+        <img ng-src="{{ entry.pictureId }}">
+        <div class="commenterImage">{{ entry.username }}</div>
         <div class="commentText">
-          <p class="">Comment: {{ entry.comment }}</p>
-          <span class="date sub-text">{{ entry.updateAt }}</span>
+          <p class="">{{ entry.comment }}</p>
+          <span class="date sub-text">{{ entry.updatedAt }}</span>
         </div>
       </div>
     </div>
