@@ -136,8 +136,8 @@ jsdom.env({
               for( var i = 0; i < listOfParagraphContainers.length; i++ )
               {
                  var $container = listOfParagraphContainers[i];
-                 if(    $containerWithTheMostParagraphs.length === 0
-                     || $container.text().length > $containerWithTheMostParagraphs.text().length * 2 )
+                 if( $containerWithTheMostParagraphs.length === 0 || 
+                  $container.text().length > $containerWithTheMostParagraphs.text().length * 2 )
                  {
                     $containerWithTheMostParagraphs = $container;
                  }
@@ -196,11 +196,13 @@ jsdom.env({
                  try
                  {
                     shouldIgnore = (
-                          $element.css( "float" ) === "left"
-                       || $element.css( "float" ) === "right"
-                       || $element.css( "position" ) === "absolute"
-                       || $element.hasClass( _IGNORE_CLASS )
-                       || _ignoredTags.some( function( sTagName ) { return eElement.tagName === sTagName; } ) );
+                          $element.css( "float" ) === "left" || 
+                          $element.css( "float" ) === "right" ||
+                          $element.css( "position" ) === "absolute" || 
+                          $element.hasClass( _IGNORE_CLASS ) ||
+                          _ignoredTags.some( function( sTagName ) { 
+                            return eElement.tagName === sTagName; 
+                          } ) );
                  }
                  catch( exception )
                  {
@@ -248,8 +250,8 @@ jsdom.env({
               var listOfHeadingElements = [];
 
               for( var i = 0;
-                      i < listOfHeadingElementTags.length
-                   && listOfHeadingElements.length === 0;
+                      i < listOfHeadingElementTags.length && 
+                      listOfHeadingElements.length === 0;
                    i++ )
               {
                  listOfHeadingElements = $.makeArray( $( listOfHeadingElementTags[i] ) );
@@ -303,8 +305,8 @@ jsdom.env({
                  }
 
                  // For styling purposes, make sure the title is a <h1> element.
-                 if(    $title.length > 0
-                     && $title[0].tagName !== "H1" )
+                 if(    $title.length > 0 &&
+                        $title[0].tagName !== "H1" )
                  {
                     var $h1 = $("<h1></h1>");
                     $h1.html( $title.html() );
@@ -341,8 +343,8 @@ jsdom.env({
                     var eExistingElement = listOfExistingElements.shift();
                     var eClonedElement = listOfClonedElements.shift();
 
-                    if(    eExistingElement !== $contentContainer[0]
-                        && this._shouldIgnoreElement( eExistingElement ) )
+                    if(    eExistingElement !== $contentContainer[0] && 
+                      this._shouldIgnoreElement( eExistingElement ) )
                     {
                        $(eClonedElement).remove();
                     }
@@ -397,14 +399,13 @@ jsdom.env({
                  {
                     var sClassName = listOfClassNames[j];
 
-                    if(    window.Util.hasSubstringCaseInsensitive( sClassName, "article" )
-                        && window.Util.hasSubstringCaseInsensitive( sClassName, "body" ) )
+                    if( window.Util.hasSubstringCaseInsensitive( sClassName, "article" ) && 
+                      window.Util.hasSubstringCaseInsensitive( sClassName, "body" ) )
                     {
                        var $splitContentContainer = $container.siblings( "." + sClassName );
                        var $separatedParagraphs = $splitContentContainer.find( "p" );
 
-                       if(    $splitContentContainer.length === 1
-                           && $separatedParagraphs.length > 0 )
+                       if( $splitContentContainer.length === 1 && $separatedParagraphs.length > 0 )
                        {
                           isSplitIntoTwoContainers = true;
 
