@@ -36,7 +36,6 @@ angular.module('contextcommentsApp')
       syncComments(comments);
     };
 
-
     return {
       syncComments: syncComments,
       initialSync: initialSync,
