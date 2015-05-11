@@ -1,21 +1,22 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
 <header class="hero-unit" id="banner">
-  <div class="container">
+  <div class="container" style="margin: auto;">
     <h1>Context Comments</h1>
     <p class="lead">Make online discussions suck less</p>
-    <img src="assets/images/yeoman.png" alt="I'm Yeoman">
+    <!-- <img src="assets/images/yeoman.png" alt="I'm Yeoman"> -->
   </div>
 </header>
 
-
-  <form class="thing-form">
+<div style="height: 50%; width: auto;">
+  <form class="thing-form" style="width: 50%; margin: auto;">
     <p class="input-group">
-      <input type="text" class="form-control" placeholder="Enter link to discuss here" ng-model="newThing">
+      <input type="text" class="form-control"  placeholder="Enter link to discuss here" ng-model="newThing">
       <span class="input-group-btn">
         <button type="submit" class="btn btn-primary" ng-click="addThing()">Add New</button>
       </span>
     </p>
   </form>
+</div>
 </div>
 

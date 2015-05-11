@@ -1,5 +1,5 @@
 <!-- div for the entire right panel -->
-<div id="commentPanel" style='padding-top:75px;'>
+<div id="commentPanel" class="container" style="padding-top: 75px;">
 
   <!-- comment box -->
   <div class="panel panel-default" ng-repeat="box in boxes track by $index">
@@ -8,8 +8,10 @@
     <!-- entries in the comment box -->
     <div class="panel" ng-repeat="entry in box.entries">
       <div class="Entry">
-        <img ng-src="{{ entry.pictureId }}">
-        <div class="commenterImage">{{ entry.username }}</div>
+        <div class="commenterImage">
+          <img ng-src="{{ entry.pictureId }}">
+          {{ entry.username }}
+        </div>
         <div class="commentText">
           <p class="">{{ entry.comment }}</p>
           <span class="date sub-text">{{ entry.updatedAt }}</span>
